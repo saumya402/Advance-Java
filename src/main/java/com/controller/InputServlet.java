@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,8 +16,19 @@ public class InputServlet extends HttpServlet {
 		int n1 = Integer.parseInt(n1Str);
 		String n2Str = req.getParameter("no2");
 		int n2 = Integer.parseInt(n2Str);
+		String opr = req.getParameter("opr");
 		
-		int ans = n1 + n2;
-		System.out.println("Addition of n1 and n2 ---->"+ans);
+		PrintWriter out = resp.getWriter();
+		if(opr.equals("add")) {
+			out.print(n1+n2);
+		}else if(opr.equals("sub")) {
+			out.print(n1 - n2);
+		}
+		else if(opr.equals("mul")) {
+			out.print(n1 * n2);
+		}
+		else{
+			out.print(n1 / n2);
+		}
 	}
 }
