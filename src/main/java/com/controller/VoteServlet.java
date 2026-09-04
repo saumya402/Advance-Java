@@ -24,8 +24,6 @@ public class VoteServlet extends HttpServlet {
 		String error = "";
 		Boolean isError = false;
 		
-		
-		
 		if(name == null || name.isBlank()) {
 			error = "Please Enter Your name<br>";
 			isError = true;
